@@ -92,29 +92,10 @@ def onmouse_pick_points(event, x, y, flags, draw_pts):
             draw_pts.draw()
 
 
-# if __name__ == "__main__":
-#     img_height = 600
-#     img_path = "./test_imgs/test1.jpg"
-#     # img_path = "C:/Users/leexi/Desktop/hhh.png"
-#     img = cv2.imread(img_path)
-#     assert img is not None, "Can't open {img_path}"
-#     autoRect = get_rectangle(img, img_height)
-#     warpedImg = four_point_transform(img, autoRect)
-
-#     # cv2.imshow("warped", warped)
-#     # enhancer = imgEnhance.Enhancer()
-#     # enhancedImg = enhancer.gamma(warped, 1.63)
-
-#     cv2.imshow("Origin img", imutils.resize(img, height=img_height))
-#     cv2.imshow("Warped img", imutils.resize(warpedImg, height=img_height))
-#     # cv2.imshow("gamma", imutils.resize(enhancedImg, height=img_height))
-
-#     cv2.waitKey(0)
-#     cv2.destroyAllWindows()
 
     
 if __name__ == '__main__':
-    img_path = "./test_imgs/test4.jpg"
+    img_path = "./test_imgs/test1.jpg"
     img = cv2.imread(img_path)
     img_height = 600
     draw_pts = DrawPoints(img, img_height, (0, 255, 0))
@@ -134,13 +115,12 @@ if __name__ == '__main__':
 
     warpedImg = four_point_transform(img, userRect)
 
-    # cv2.imshow("warped", warped)
     # enhancer = imgEnhance.Enhancer()
-    # enhancedImg = enhancer.gamma(warped, 1.63)
+    # enhancedImg = enhancer.sharp(warpedImg, 3.0)
 
     # cv2.imshow("Origin img", imutils.resize(img, height=img_height))
     cv2.imshow("Warped img", imutils.resize(warpedImg, height=img_height))
-    # cv2.imshow("gamma", imutils.resize(enhancedImg, height=img_height))
+    # cv2.imshow("Sharped img", imutils.resize(enhancedImg, height=img_height))
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()

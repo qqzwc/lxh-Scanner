@@ -1,0 +1,57 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe 生成活动文件",
+            "command": "D:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-O2", // debug: -g  release: -O2
+                "-fopenmp",
+                "${file}",
+                "-lglut32",//使用glut
+                "-lglu32",
+                "-lopengl32",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-std=c++11",
+                "-I",
+                "D:/cpp_library/eigen-3.3.9",
+            	//添加c_cpp_properties.json中配置的对应的头文件搜索路径
+                "-I","D:/opencv/build/x64/MinGW/install/include",
+				//-L后添加dll文件所在路径
+				//注意"-L"和"-l"一定要单独放,不要这样写成"-L xxxxx".如果写成这样,编译的时候会在命令中添加"",会报错
+                "-L","D:/opencv/build/x64/MinGW/install/x64/mingw/bin",
+                //仅仅告诉cpp文件头文件,并不能找到对应的dll文件,因此需要使用 "-l"明确指出
+                //注意"-l" 后面跟的库名不能加后缀,不然会提示ld.exe无法打开文件-l(name).(posterfix)
+                "-l", "libopencv_calib3d455",
+                "-l", "libopencv_core455",
+                "-l", "libopencv_dnn455",
+                "-l", "libopencv_features2d455",
+                "-l", "libopencv_flann455",
+                "-l", "libopencv_gapi455",
+                "-l", "libopencv_highgui455",
+                "-l", "libopencv_imgcodecs455",
+                "-l", "libopencv_imgproc455",
+                "-l", "libopencv_ml455",
+                "-l", "libopencv_objdetect455",
+                "-l", "libopencv_photo455",
+                "-l", "libopencv_stitching455",
+                "-l", "libopencv_video455",
+                "-l", "libopencv_videoio455"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "调试器生成的任务。"
+        }
+    ],
+    "version": "2.0.0"
+}

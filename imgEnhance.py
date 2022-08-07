@@ -5,25 +5,21 @@ import cv2
 class Enhancer:
     def bright(self, image, brightness):
         enh_bri = ImageEnhance.Brightness(image)
-        brightness = brightness
         imageBrightend = enh_bri.enhance(brightness)
         return imageBrightend
 
     def color(self, image, color):
         enh_col = ImageEnhance.Color(image)
-        color = color
         imageColored = enh_col.enhance(color)
         return imageColored
 
     def contrast(self, image, contrast):
         enh_con = ImageEnhance.Contrast(image)
-        contrast = contrast
         image_contrasted = enh_con.enhance(contrast)
         return image_contrasted
 
     def sharp(self, image, sharpness):
         enh_sha = ImageEnhance.Sharpness(image)
-        sharpness = sharpness
         image_sharped = enh_sha.enhance(sharpness)
         return image_sharped
 

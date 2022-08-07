@@ -21,8 +21,8 @@ def get_rectangle(img, img_height):
     contours = sorted(contours, key=cv2.contourArea,
                       reverse=True)[:5]  # 找出面积最大的前五个轮廓
 
-    # cv2.drawContours(img,contours,-1,(0,0,255),3,lineType=cv2.LINE_AA)
-    # cv2.imshow('Contours', img)
+    cv2.drawContours(img,contours,-1,(0,0,255),3,lineType=cv2.LINE_AA)
+    cv2.imshow('Contours', img)
     autoRect = None 
     for c in contours:
         peri = cv2.arcLength(c, True)  # Calculating contour circumference
@@ -45,7 +45,7 @@ def get_rectangle(img, img_height):
 
 if __name__ == "__main__":
     img_height = 600
-    img_path = "./test_imgs/test1.jpg"
+    img_path = "./test_imgs/test5.jpg"
     # img_path = "C:/Users/leexi/Desktop/hhh.png"
     img = cv2.imread(img_path)
     assert img is not None, "Can't open {img_path}"
